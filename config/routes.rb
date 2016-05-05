@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
+  devise_scope :user do
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_sessions
+  end
+
+  root 'pages#home'
 
   get 'pages/about'
+
+  get 'pages/books'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

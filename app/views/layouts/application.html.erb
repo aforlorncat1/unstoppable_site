@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UnstoppableSite</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="assets/images/favicon.ico">
+
+  <title>Unstoppable Site</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet/scss"  href="assets/bootstrap.css.scss">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet/scss" href="assets/ionicons.min.css.scss" >
+  <link rel="stylesheet/scss" href="assets/style.css.scss">
+  <link rel="stylesheet/scss"  href="assets/bootstrap-social.css.scss">
+
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render "layouts/header" %>
 
+<%= yield %>
+<%= render "layouts/footer" %>
+
+	
 </body>
 </html>
