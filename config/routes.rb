@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :events
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  scope "/admin" do
+    resources :users
+  end
 
   devise_scope :user do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_sessions
@@ -10,6 +15,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/books'
+
+  resources :event_users, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

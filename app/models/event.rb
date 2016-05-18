@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
-  has_many :users, :through => :event_users
-  
+  # belongs_to :user
+
+  has_many :event_users, :foreign_key => :attended_event_id
+  has_many :attendees, :through => :event_users
+
 end

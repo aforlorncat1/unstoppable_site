@@ -1,0 +1,28 @@
+<% @events.each do |event| %>	
+	<ul class="style list-unstyled">
+		<li>
+		  <img class="img-circle pull-left" src="http://placehold.it/250x250" alt="">
+				<a href="<%= event_path(event.id)%>">
+		      <h3><%= event.name.capitalize %></h3>
+		    </a>
+		      <h4><%= event.location %></h4>
+		      <p class="description"><%= event.description %></p>
+		        <ul class="list-unstyled">
+							<li>	
+								<i class="ion-android-time"></i><span><%= "#{(event.date)} at #{(event.start_time.strftime("%I:%M %p"))}"%> </span>
+							</li>
+						</ul>
+		      <a class="btn btn-primary" href="#">More Details <span class="ion-ios-arrow-forward"></span></a>
+
+ 					<% if can? :edit, event %>
+            <%= link_to 'Edit', edit_event_path(event), class: "btn btn-warning" %>
+            <%end%>
+
+		      <% if can? :destroy, event %>
+		      <%= link_to 'Destroy', event, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+		      	<%end%>
+		     <%end%>
+		</li>
+	</ul>
+<hr>
+

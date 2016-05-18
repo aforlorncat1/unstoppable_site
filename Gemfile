@@ -42,6 +42,10 @@ gem 'devise'
 
 gem 'omniauth-facebook'
 
+gem 'cancancan', '~> 1.10'
+
+
+
 
 
 
